@@ -24,7 +24,7 @@ try:
                     )
 finally:
     conn.commit()
-    conn.close()
+    # conn.close()
 
 
 # create table employees
@@ -43,7 +43,7 @@ try:
                     )
 finally:
     conn.commit()
-    conn.close()
+    # conn.close()
 
 
 
