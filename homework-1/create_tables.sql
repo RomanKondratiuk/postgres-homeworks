@@ -1,18 +1,33 @@
 -- SQL-команды для создания таблиц
 
--- Table: public.customers
-
--- DROP TABLE IF EXISTS public.customers;
-
-CREATE TABLE IF NOT EXISTS public.customers
+CREATE TABLE customers
 (
-    customer_id character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    company_name character varying(100) COLLATE pg_catalog."default",
-    contact_name character varying(100) COLLATE pg_catalog."default",
-    CONSTRAINT customers_pkey PRIMARY KEY (customer_id)
-)
+	customer_id varchar(100) PRIMARY KEY,
+	company_name varchar (100),
+	contact_name varchar (100)
+);
 
-TABLESPACE pg_default;
+--SELECT * FROM customers;
 
-ALTER TABLE IF EXISTS public.customers
-    OWNER to postgres;
+
+
+CREATE TABLE employees
+(
+	employee_id int primary key,
+	first_name varchar (100),
+	last_name varchar (100),
+	title varchar (100),
+	birth_date text,
+    notes text
+);
+SELECT * FROM employees;
+
+CREATE TABLE orders
+(
+    order_id int PRIMARY KEY,
+	customer_id varchar (100) REFERENCES customers(customer_id),
+    employee_id int REFERENCES employees(employee_id),
+    order_date text,
+    ship_city text
+);
+SELECT * FROM orders;

@@ -27,7 +27,7 @@ finally:
     conn.close()
 
 
-# # create table employees
+# create table employees
 try:
     with conn:
         with conn.cursor() as cursor:
@@ -47,7 +47,7 @@ finally:
 
 
 
-#create table orders
+# create table orders
 try:
     with conn:
         with conn.cursor() as cursor:
